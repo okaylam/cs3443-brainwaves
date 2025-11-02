@@ -1,9 +1,9 @@
-package edu.utsa.cs3443.brainwaves;
+package edu.utsa.cs3443.brainwaves.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class AppController {
     @FXML
     private Label welcomeText;
 
