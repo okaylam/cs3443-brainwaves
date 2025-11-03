@@ -1,0 +1,28 @@
+.task-card {
+    -fx-background-color: #fffaf9;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0.2, 0, 2);
+}
+
+.chip {
+    -fx-background-radius: 999;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+}
+
+.priority-low { -fx-background-color: #e8f5e9; }
+.priority-med { -fx-background-color: #fff3cd; }
+.priority-high { -fx-background-color: #ffe0db; }
+
+.status-pending { -fx-background-color: #e9ecf8; }
+.status-inprogress { -fx-background-color: #e8f0ff; }
+.status-complete { -fx-background-color: #e4f6ee; }
+
+.category-0 { -fx-background-color: #d9f2e6; } /* green mint */
+.category-1 { -fx-background-color: #ffe0e0; } /* coral */
+.category-2 { -fx-background-color: #e7eaff; } /* indigo */
+.category-3 { -fx-background-color: #fff0cc; } /* amber */
+.category-4 { -fx-background-color: #e8f6ff; } /* sky */
+.category-5 { -fx-background-color: #f0e6ff; } /* purple */
+.category-6 { -fx-background-color: #e8ffe8; } /* soft green */
+.category-7 { -fx-background-color: #ffe8f5; }

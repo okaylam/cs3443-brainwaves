@@ -3,7 +3,6 @@ package edu.utsa.cs3443.brainwaves.controller;
 import edu.utsa.cs3443.brainwaves.model.Task;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -28,12 +27,12 @@ public class TaskController {
                 String taskTitle = parts[1];
                 String taskDesc = parts[2];
                 LocalDate dueDate = LocalDate.parse(parts[3]);
-                int timeToComplete = Integer.parseInt(parts[4]);
+                int timeEstimate = Integer.parseInt(parts[4]);
                 Task.Priority priority = Task.Priority.valueOf(parts[5]);
                 Task.Status status = Task.Status.valueOf(parts[6]);
                 String category = parts[7];
 
-                Task task = new Task(id, taskTitle, taskDesc, dueDate, timeToComplete, priority, status, category);
+                Task task = new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category);
                 tasks.add(task);
             }
         } catch (Exception e) {
@@ -53,7 +52,7 @@ public class TaskController {
                 String dueDateString = t.getDueDate().toString();
                 bw.write(t.getId() + "," + t.getTaskTitle() + "," +
                         t.getTaskDesc() + "," + dueDateString + "," +
-                        t.getTimeToComplete() + "," + t.getPriority() + "," +
+                        t.getTimeEstimate() + "," + t.getPriority() + "," +
                         t.getStatus() + "," + t.getCategory());
                 bw.newLine();
             }
@@ -74,10 +73,10 @@ public class TaskController {
     // 2. Default priority = "MEDIUM" if none selected
     // 3. Default status = "TODO" if none selected
     // 4. Allow dueDate, taskDesc, and category to be optional
-    public Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeToComplete,
+    public Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
                            Task.Priority priority, Task.Status status, String category) {
         String id = createNextID();
-        Task task = new Task(id, taskTitle, taskDesc, dueDate, timeToComplete, priority, status, category);
+        Task task = new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category);
         tasks.add(task);
         return task;
     }
@@ -108,4 +107,7 @@ public class TaskController {
             return "t" + next;
         }
     }
+
+    // Getter
+    public ArrayList<Task> getTasks() { return tasks; }
 }

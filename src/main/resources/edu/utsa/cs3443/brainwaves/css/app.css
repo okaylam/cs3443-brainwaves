@@ -1,0 +1,23 @@
+.app {
+    -fx-background-color: linear-gradient(to bottom, #ffe6db 0%, #f6efff 40%, #e8f2ff 100%);
+}
+
+.header {
+    -fx-background-color: #fffaf9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.25, 0, 2);
+}
+
+.transparent {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.add-btn {
+    -fx-background-color: #99b0ed;
+    -fx-text-fill: white;
+    -fx-background-radius:999;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.25, 0, 2);
+}

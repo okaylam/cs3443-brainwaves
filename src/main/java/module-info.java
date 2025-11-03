@@ -4,5 +4,6 @@ module edu.utsa.cs3443.brainwaves {
 
 
     opens edu.utsa.cs3443.brainwaves to javafx.fxml;
+    opens edu.utsa.cs3443.brainwaves.controller to javafx.fxml;
     exports edu.utsa.cs3443.brainwaves;
 }

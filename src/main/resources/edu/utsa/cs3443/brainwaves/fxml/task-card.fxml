@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="task-card" stylesheets="@../css/taskcard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.brainwaves.controller.TaskCardController">
+   <padding>
+      <Insets bottom="12.0" left="20.0" right="12.0" top="12.0" />
+   </padding>
+
+   <children>
+       
+      <HBox fx:id="taskCardHeader" prefHeight="37.0" prefWidth="176.0" spacing="8.0">
+         <children>
+            <CheckBox fx:id="completeCheckbox" mnemonicParsing="false" />
+            <Label fx:id="titleLabel" text="Task Title" wrapText="true" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="taskCardDetails" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label fx:id="descLabel" text="Task description" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label fx:id="categoryChip" text="Category" />
+            <Label fx:id="priorityChip" text="Priority" />
+            <Label fx:id="statusChip" text="Status" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label fx:id="dueLabel" text="Due Date" />
+            <Label fx:id="timeLabel" text="Time" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
