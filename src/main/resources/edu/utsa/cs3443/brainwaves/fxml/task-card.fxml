@@ -31,7 +31,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Label fx:id="categoryChip" text="Category" />
+            <Label fx:id="categoryChip" text="Category" styleClass="chip"/>
             <Label fx:id="priorityChip" text="Priority" />
             <Label fx:id="statusChip" text="Status" />
          </children>
