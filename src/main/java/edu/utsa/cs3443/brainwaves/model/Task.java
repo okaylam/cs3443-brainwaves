@@ -13,8 +13,35 @@ public class Task {
     private String category;
 
     // TODO: Change enum names, and maybe implement a different way to show these values
-    public enum Priority { LOW, MEDIUM, HIGH }
-    public enum Status { TODO, INPROGRESS, COMPLETE }
+    public enum Priority { 
+        LOW("Low"), 
+        MEDIUM("Medium"), 
+        HIGH("High") 
+
+        Priority(String label) {
+            this.label = label;
+        }
+    
+        @Override
+        public String toString() {
+            return label;
+        }
+    }
+
+    public enum Status {
+        NOT_STARTED("Not Started"), 
+        IN_PROGRESS("In Progress"), 
+        COMPLETED ("Completed") 
+
+        Status(String label) {
+            this.label = label;
+        }
+
+        @Override
+        public String toString() {
+            return label;
+        }
+    }
 
     // Constructor
     public Task(String id, String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
