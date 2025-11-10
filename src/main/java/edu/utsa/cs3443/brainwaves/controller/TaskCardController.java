@@ -23,8 +23,8 @@ public class TaskCardController {
         // Determines if the task has a description
         setLabel(descLabel, task.getTaskDesc());
         setLabel(categoryChip, task.getCategory());
-        setLabel(priorityChip, task.getPriority() != null ? task.getPriority().name() : "");
-        setLabel(statusChip, task.getStatus() != null ? task.getStatus().name() : "");
+        setLabel(priorityChip, task.getPriority() != null ? task.getPriority().toString() : "");
+        setLabel(statusChip, task.getStatus() != null ? task.getStatus().toString() : "");
         setLabel(dueLabel, task.getDueDate() != null ? task.getDueDate().toString() : "");
         setLabel(timeLabel, task.getTimeEstimate() != 0 ? String.valueOf(task.getTimeEstimate()) : "");
     }
