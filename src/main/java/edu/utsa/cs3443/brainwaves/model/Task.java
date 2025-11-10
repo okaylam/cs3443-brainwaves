@@ -12,6 +12,7 @@ public class Task {
     private Status status;
     private String category;
 
+    // TODO: Change enum names, and maybe implement a different way to show these values
     public enum Priority { LOW, MEDIUM, HIGH }
     public enum Status { TODO, INPROGRESS, COMPLETE }
 

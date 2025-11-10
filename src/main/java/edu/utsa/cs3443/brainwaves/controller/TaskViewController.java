@@ -34,8 +34,13 @@ public class TaskViewController {
             var card = loader.load();
             TaskCardController controller = loader.getController();
 
-            controller.setTaskCard(task.getTaskTitle(), task.getTaskDesc());
+            controller.setTask(task);
             taskContainer.getChildren().add((Node) card);
         }
+    }
+
+    @FXML
+    private void handleAddTask() {
+        System.out.println("Add Task clicked - not implemented yet.");
     }
 }

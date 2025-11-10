@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.brainwaves.controller;
 
+import edu.utsa.cs3443.brainwaves.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -10,23 +11,29 @@ public class TaskCardController {
     @FXML private Label priorityChip;
     @FXML private Label statusChip;
     @FXML private Label dueLabel;
-    @FXML  private Label timeLabel;
+    @FXML private Label timeLabel;
 
-    public void setTaskCard(String taskTitle, String taskDesc) {
-        titleLabel.setText(taskTitle);
+    private Task task;
+
+    public void setTask(Task task) {
+        this.task = task;
+
+        titleLabel.setText(task.getTaskTitle());
 
         // Determines if the task has a description
-        boolean hasDesc = taskDesc != null && !taskDesc.isBlank();
+        setLabel(descLabel, task.getTaskDesc());
+        setLabel(categoryChip, task.getCategory());
+        setLabel(priorityChip, task.getPriority() != null ? task.getPriority().name() : "");
+        setLabel(statusChip, task.getStatus() != null ? task.getStatus().name() : "");
+        setLabel(dueLabel, task.getDueDate() != null ? task.getDueDate().toString() : "");
+        setLabel(timeLabel, task.getTimeEstimate() != 0 ? String.valueOf(task.getTimeEstimate()) : "");
+    }
 
-        //
-        if (hasDesc) {
-            descLabel.setText(taskDesc);
-        } else {
-            descLabel.setText("");
-        }
-
-        descLabel.setVisible(hasDesc);
-        descLabel.setManaged(hasDesc);
-
+    // Determines if
+    private void setLabel(Label label, String text) {
+        boolean isEmpty = text != null && !text.isBlank();
+        label.setText(isEmpty ? text : "");
+        label.setVisible(isEmpty);
+        label.setManaged(isEmpty);
     }
 }
