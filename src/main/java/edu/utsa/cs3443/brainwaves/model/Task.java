@@ -14,14 +14,22 @@ public class Task {
 
     // TODO: Change enum names, and maybe implement a different way to show these values
     public enum Priority { 
-        LOW("Low"), 
-        MEDIUM("Medium"), 
-        HIGH("High") 
+        LOW("Low", "#e8f5e9"), 
+        MEDIUM("Medium", "#fff3cd"), 
+        HIGH("High", "#ffe0db");
 
-        Priority(String label) {
+        private final String label;
+        private final String color;
+
+        Priority(String label, String color) {
             this.label = label;
+            this.color = color;
         }
-    
+
+        public String getColor() {
+            return color;
+        }
+        
         @Override
         public String toString() {
             return label;
@@ -29,12 +37,20 @@ public class Task {
     }
 
     public enum Status {
-        NOT_STARTED("Not Started"), 
-        IN_PROGRESS("In Progress"), 
-        COMPLETED ("Completed") 
+        NOT_STARTED("Not Started", "#F0F2FA"), 
+        IN_PROGRESS("In Progress", "#CD26FF"), 
+        COMPLETED ("Completed", "#C2BED8");
 
+        private final String label;
+        private final String color;
+        
         Status(String label) {
             this.label = label;
+            this.color = color;
+        }
+
+        public String getColor() {
+            return color;
         }
 
         @Override
