@@ -24,7 +24,13 @@ public class TaskCardController {
         setLabel(descLabel, task.getTaskDesc());
         setLabel(categoryChip, task.getCategory());
         setLabel(priorityChip, task.getPriority() != null ? task.getPriority().toString() : "");
+        if (task.getPriority() != null) {
+            priorityChip.setStyle("-fx-background-color: " + task.getPriority().getColor() + ";");
+        }
         setLabel(statusChip, task.getStatus() != null ? task.getStatus().toString() : "");
+        if (task.getStatus() != null) {
+            statusChip.setStyle("-fx-background-color: " + task.getStatus().getColor() + ";");
+        }
         setLabel(dueLabel, task.getDueDate() != null ? task.getDueDate().toString() : "");
         setLabel(timeLabel, task.getTimeEstimate() != 0 ? String.valueOf(task.getTimeEstimate()) : "");
     }
