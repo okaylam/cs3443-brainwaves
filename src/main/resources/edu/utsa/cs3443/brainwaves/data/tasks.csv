@@ -1,9 +1,9 @@
 id,tasktitle,taskDesc,dueDate,timeEstimate,priority,status,category
-t01,Finish Late Calculus Assignment,Turn in submission for overdue assignment,2025-11-01,1,HIGH,INPROGRESS,Calculus
-t02,Study for Chemistry Quiz,Review Chapters 6-8,2025-10-21,3,MEDIUM,COMPLETE,Chemistry
-t03,Complete Calculus Assignment,Problems 1-20 from Chapter 5,2025-10-24,2,HIGH,INPROGRESS,Calculus
-t04,Principles of Design Project,Finish adding details to composition,2025-10-31,1,LOW,INPROGRESS,Art & Design
-t05,Read Chapter 4 of ""Blood Meridian"",Read and annotate Chapter 4,2025-11-02,4,MEDIUM,TODO,American Lit
-t06,Attend Group Project Meeting,Agenda: milestones & task split,2025-11-05,3,MEDIUM,TODO,Art & Design
-t07,Study History Midterm Review and Notes,Review class notes and recorded lectures,2025-10-07,3,LOW,COMPLETE,History
-t08,Complete Child Safety Certification,Finish online safety modules and quiz,2025-10-02,3,MEDIUM,COMPLETE,Professional Development
+t01,Finish Late Calculus Assignment,Turn in submission for overdue assignment,2025-11-01,1,HIGH,IN_PROGRESS,Calculus
+t02,Study for Chemistry Quiz,Review Chapters 6-8,2025-10-21,3,MEDIUM,COMPLETED,Chemistry
+t03,Complete Calculus Assignment,Problems 1-20 from Chapter 5,2025-10-24,2,HIGH,IN_PROGRESS,Calculus
+t04,Principles of Design Project,Finish adding details to composition,2025-10-31,1,LOW,IN_PROGRESS,Art & Design
+t05,Read Chapter 4 of ""Blood Meridian"",Read and annotate Chapter 4,2025-11-02,4,MEDIUM,NOT_STARTED,American Lit
+t06,Attend Group Project Meeting,Agenda: milestones & task split,2025-11-05,3,MEDIUM,NOT_STARTED,Art & Design
+t07,Study History Midterm Review and Notes,Review class notes and recorded lectures,2025-10-07,3,LOW,COMPLETED,History
+t08,Complete Child Safety Certification,Finish online safety modules and quiz,2025-10-02,3,MEDIUM,COMPLETED,Professional Development
