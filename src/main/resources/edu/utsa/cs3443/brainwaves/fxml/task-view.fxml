@@ -98,7 +98,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField prefWidth="280.0" promptText="What's on your brain?" styleClass="input-field" />
+                        <TextField fx:id="titleField" prefWidth="280.0" promptText="What's on your brain?" styleClass="input-field" />
                      </children>
                   </VBox>
                   <VBox prefHeight="95.0" prefWidth="280.0">
@@ -108,7 +108,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="70.0" prefWidth="280.0" promptText="Add some details..." styleClass="description-field" />
+                        <TextArea fx:id="descField" prefHeight="70.0" prefWidth="280.0" promptText="Add some details..." styleClass="description-field" />
                      </children>
                   </VBox>
                   <HBox prefHeight="53.0" prefWidth="280.0" spacing="80.0">
@@ -120,7 +120,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField promptText="e.g. Math" styleClass="input-field" />
+                              <TextField fx:id="subjectField" promptText="e.g. Math" styleClass="input-field" />
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
@@ -144,7 +144,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker />
+                              <DatePicker fx:id="dueDatePicker" />
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
@@ -154,7 +154,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Spinner />
+                              <Spinner fx:id="timeSpinner" />
                            </children>
                         </VBox>
                      </children>
