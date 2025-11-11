@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -12,6 +13,8 @@ import java.io.IOException;
 public class TaskViewController {
     @FXML private VBox taskContainer;
     @FXML private Button addTaskButton;
+    @FXML private Button cancelTaskButton;
+    @FXML private StackPane addTaskOverlay;
     @FXML private Label progressLabel;
 
     private final TaskController taskData = new TaskController();
@@ -41,6 +44,13 @@ public class TaskViewController {
 
     @FXML
     private void handleAddTask() {
-        System.out.println("Add Task clicked - not implemented yet.");
+        addTaskOverlay.setVisible(true);
+        addTaskOverlay.setManaged(true);
+    }
+
+    @FXML
+    private void handleCancelAddTask() {
+        addTaskOverlay.setVisible(false);
+        addTaskOverlay.setManaged(false);
     }
 }

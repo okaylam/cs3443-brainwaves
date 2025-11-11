@@ -10,14 +10,6 @@
     -fx-font-size: 11px;
 }
 
-.priority-low { -fx-background-color: #e8f5e9; }
-.priority-med { -fx-background-color: #fff3cd; }
-.priority-high { -fx-background-color: #ffe0db; }
-
-.status-pending { -fx-background-color: #e9ecf8; }
-.status-inprogress { -fx-background-color: #e8f0ff; }
-.status-complete { -fx-background-color: #e4f6ee; }
-
 .category-0 { -fx-background-color: #d9f2e6; } /* green mint */
 .category-1 { -fx-background-color: #ffe0e0; } /* coral */
 .category-2 { -fx-background-color: #e7eaff; } /* indigo */

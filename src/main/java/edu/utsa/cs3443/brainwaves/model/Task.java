@@ -38,13 +38,13 @@ public class Task {
 
     public enum Status {
         NOT_STARTED("Not Started", "#F0F2FA"), 
-        IN_PROGRESS("In Progress", "#CD26FF"), 
-        COMPLETED ("Completed", "#C2BED8");
+        IN_PROGRESS("In Progress", "#FCB9AA"),
+        COMPLETED ("Completed", "#55CBCD");
 
         private final String label;
         private final String color;
         
-        Status(String label) {
+        Status(String label, String color) {
             this.label = label;
             this.color = color;
         }
@@ -75,13 +75,13 @@ public class Task {
     // Checks if a task is overdue by looking at the due date and if the status is not set to COMPLETE
     public boolean isOverdue() {
         return dueDate != null
-                && status != Status.COMPLETE
+                && status != Status.COMPLETED
                 && dueDate.isBefore(java.time.LocalDate.now());
     }
 
     // Checks if a task is completed by looking if the status is set to COMPLETE
     public boolean isCompleted() {
-        return status == Status.COMPLETE;
+        return status == Status.COMPLETED;
     }
 
     // Getters

@@ -29,11 +29,11 @@
             <Label fx:id="descLabel" text="Task description" wrapText="true" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Label fx:id="categoryChip" text="Category" styleClass="chip"/>
-            <Label fx:id="priorityChip" text="Priority" />
-            <Label fx:id="statusChip" text="Status" />
+            <Label fx:id="categoryChip" styleClass="chip" stylesheets="@../css/taskcard.css" text="Category" />
+            <Label fx:id="priorityChip" styleClass="chip" stylesheets="@../css/taskcard.css" text="Priority" />
+            <Label fx:id="statusChip" styleClass="chip" stylesheets="@../css/taskcard.css" text="Status" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
