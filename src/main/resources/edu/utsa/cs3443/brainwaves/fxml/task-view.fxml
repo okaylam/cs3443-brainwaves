@@ -162,7 +162,7 @@
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="71.0" prefWidth="280.0" spacing="15.0">
                      <children>
                         <Button fx:id="cancelTaskButton" mnemonicParsing="false" styleClass="cancel-btn" text="Cancel" onAction="#handleCancelAddTask" />
-                        <Button mnemonicParsing="false" styleClass="add-btn" text="+ Add Task" />
+                        <Button fx:id="confirmAddTaskButton" mnemonicParsing="false" styleClass="add-btn" text="+ Add Task" onAction="#handleConfirmAddTask"/>
                      </children>
                   </HBox>
                </children>
