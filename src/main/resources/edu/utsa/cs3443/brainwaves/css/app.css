@@ -1,3 +1,4 @@
+/* Main app styles */
 .app {
     -fx-background-color: linear-gradient(to bottom, #ffe8e4 0%, #f6efff 40%, #e8f2ff 100%);
 }
@@ -28,6 +29,13 @@
     -fx-text-fill: #c0d9fa;
 }
 
+/* Home View Styles */
+.profile-pic {
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0.1, 0.2);
+}
+
+/* Task View styles */
 .add-btn {
     -fx-background-color: #99b0ed;
     -fx-text-fill: white;
