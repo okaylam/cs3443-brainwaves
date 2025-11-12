@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TaskController {
-    private final ArrayList<Task> tasks = new ArrayList<>();
+    private static final ArrayList<Task> tasks = new ArrayList<>();
     private static final String FILE_PATH = "src/main/resources/edu/utsa/cs3443/brainwaves/data/tasks.csv";
 
     public void loadTasks() throws IOException {
@@ -73,8 +73,8 @@ public class TaskController {
     // 2. Default priority = "MEDIUM" if none selected
     // 3. Default status = "TODO" if none selected
     // 4. Allow dueDate, taskDesc, and category to be optional
-    public Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
-                           Task.Priority priority, Task.Status status, String category) {
+    public static Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
+                                  Task.Priority priority, Task.Status status, String category) {
         String id = createNextID();
         Task task = new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category);
         tasks.add(task);
@@ -82,7 +82,7 @@ public class TaskController {
     }
 
     // Creates IDs for tasks incrementally
-    private String createNextID() {
+    private static String createNextID() {
         int max = 0;
 
         // Loops through tasks to find the highest ID number

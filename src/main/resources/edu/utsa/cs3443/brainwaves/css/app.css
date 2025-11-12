@@ -15,6 +15,19 @@
     -fx-background-color: transparent;
 }
 
+.nav-bar {
+    -fx-background-color: #0a0f29;
+    -fx-background-radius: 18;
+    -fx-padding: 10 12;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0.1, 0, 2);
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c0d9fa;
+}
+
 .add-btn {
     -fx-background-color: #99b0ed;
     -fx-text-fill: white;

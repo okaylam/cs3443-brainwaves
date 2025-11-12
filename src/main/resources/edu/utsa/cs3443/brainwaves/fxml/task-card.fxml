@@ -16,7 +16,7 @@
        
       <HBox fx:id="taskCardHeader" prefHeight="37.0" prefWidth="176.0" spacing="8.0">
          <children>
-            <CheckBox fx:id="completeCheckbox" mnemonicParsing="false" />
+            <CheckBox fx:id="completeCheckbox" mnemonicParsing="false" onAction="#toggleCompleted" />
             <Label fx:id="titleLabel" text="Task Title" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />

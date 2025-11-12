@@ -1,14 +1,16 @@
 package edu.utsa.cs3443.brainwaves.controller;
 
+import edu.utsa.cs3443.brainwaves.model.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class TaskViewController {
     @FXML private VBox taskContainer;
@@ -19,7 +21,7 @@ public class TaskViewController {
     @FXML private TextField titleField;
     @FXML private TextArea descField;
     @FXML private TextField subjectField;
-    @FXML private ComboBox<Priority> priorityBox;
+    @FXML private ChoiceBox<Task.Priority> priorityBox;
     @FXML private DatePicker dueDatePicker;
     @FXML private Spinner<Integer> timeSpinner;
 
@@ -30,6 +32,9 @@ public class TaskViewController {
         // Sets up the time spinner
         SpinnerValueFactory<Integer> spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 240, 0, 15);
         timeSpinner.setValueFactory(spinner);
+
+        // Sets up the Priority dropdown choicebox
+        priorityBox.getItems().setAll(Task.Priority.values());
         
         // Loads the tasks from the csv file
         try {
@@ -50,12 +55,16 @@ public class TaskViewController {
     // Creates a task card
     @FXML
     private void addTaskCard(Task task) {
-        var loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/brainwaves/fxml/task-card.fxml"));
-        var card = loader.load();
-        TaskCardController controller = loader.getController();
+        try {
+            var loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/brainwaves/fxml/task-card.fxml"));
+            var card = loader.load();
+            TaskCardController controller = loader.getController();
 
-        controller.setTask(task);
-        taskContainer.getChildren().add((Node) card);
+            controller.setTask(task);
+            taskContainer.getChildren().add((Node) card);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Opens the "Add Task" menu
@@ -79,8 +88,8 @@ public class TaskViewController {
 
         // Required: Task Title
         if (titleField.getText().trim().isEmpty()) {
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setContextText("Missing required field. Please enter task title.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Missing required field. Please enter task title.");
             alert.showAndWait();
             return;
         }
@@ -102,7 +111,7 @@ public class TaskViewController {
         }
 
         // Optional: Task Priority
-        Priority taskPriority = null;
+        Task.Priority taskPriority = null;
         if (priorityBox != null) {
             taskPriority = priorityBox.getValue();
         }
@@ -114,16 +123,16 @@ public class TaskViewController {
         }
 
         // Optional: Task Time Estimate
-        Integer taskTimeEstimate = null;
+        int taskTimeEstimate = 0;
         if (timeSpinner.getValue() != null && timeSpinner.getValue() > 0) {
             taskTimeEstimate = timeSpinner.getValue();
         }
 
         // Sets initial status to NOT_STARTED
-        Status initialStatus = Status.NOT_STARTED;
+        Task.Status initialStatus = Task.Status.NOT_STARTED;
 
         // Creates a new task using the inputted information
-        Task newTask = new Task(taskTitle, taskDesc, taskCategory, taskPriority, initialStatus, taskDueDate, taskTimeEstimate);
+        Task newTask = TaskController.createTask(taskTitle, taskDesc, taskDueDate, taskTimeEstimate, taskPriority, initialStatus, taskCategory);
         addTaskCard(newTask);
 
         // Hides overlay and clears text fields after task is added
@@ -140,7 +149,7 @@ public class TaskViewController {
         subjectField.clear();
         priorityBox.setValue(null);
         dueDatePicker.setValue(null);
-        timeSpinner.getValueFactor().setValue(0);
+        timeSpinner.getValueFactory().setValue(0);
     }
 }
     
