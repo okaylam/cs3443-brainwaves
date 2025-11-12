@@ -31,8 +31,10 @@
 
 /* Home View Styles */
 .profile-pic {
+    -fx-background-color: #ffffffbf;
     -fx-background-radius: 12;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0.1, 0.2);
+    -fx-background-border: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0.25, 0, 2);
 }
 
 /* Task View styles */

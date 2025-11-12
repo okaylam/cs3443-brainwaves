@@ -32,8 +32,7 @@ public class TaskController {
                 Task.Status status = Task.Status.valueOf(parts[6]);
                 String category = parts[7];
 
-                Task task = new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category);
-                tasks.add(task);
+                tasks.add(new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category));
             }
         } catch (Exception e) {
             // FIXME: Improve error handling and add user-friendly alerts

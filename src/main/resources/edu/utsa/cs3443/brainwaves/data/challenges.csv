@@ -1,0 +1,11 @@
+id,name,text,type,difficulty,xp
+1,Focus Master,Do two uninterrupted study sessions today,focus,medium,25
+2,Mindful Mover,Stretch after finishing a focus session,mindfulness,easy,10
+3,Task Slayer,Clear one item from your in progress list,tasks,medium,20
+4,Goal Setter,Write one measurable goal for this week,productivity,easy,15
+5,Space Organizer,Take 3 minutes to organize your study space,productivity,medium,20
+6,Habit Builder,Identify one habit you'd like to build,reflection,easy,15
+7,Momentum Maker,Finish three different tasks today,tasks,hard,30
+8,Prep Pro,Write down your top 3 priorities for today's study session,productivity,easy,15
+9,Distraction Dodger,Keep your phone in another room while studying,focus,medium,20
+10,Brain Break,Step away from your screen and take a 5 minute break outside,mindfulness,easy,10
