@@ -1,1 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
+<VBox fx:controller="edu.utsa.cs3443.brainwaves.controller.BadgeCardController"
+      xmlns="http://javafx.com/javafx/24.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      spacing="8" alignment="CENTER">
+    <children>
+        <ImageView fx:id="badgeIcon" fitHeight="64" fitWidth="64" preserveRatio="true"/>
+        <Label fx:id="badgeName" text="Badge Name"/>
+        <Label fx:id="badgeDescription" text="Badge Description" wrapText="true"/>
+    </children>
+</VBox>
