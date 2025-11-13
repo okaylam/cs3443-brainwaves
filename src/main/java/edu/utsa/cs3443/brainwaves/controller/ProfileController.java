@@ -23,7 +23,7 @@ public class ProfileController {
     public void initialize() {
       
         // Example user data
-        usernameLabel.setText("Hey Snoopy!"); // Replace with dynamic username
+        usernameLabel.setText("Hey Snoopy!"); 
         
         // Example: 50% XP progress
         xpBar.setProgress(0.5); 
