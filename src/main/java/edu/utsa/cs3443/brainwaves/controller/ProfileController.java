@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+//**
  * Controller for profile-view.fxml
  * Displays user info, XP progress, and earned badges.
- */
+ *//
 public class ProfileController {
 
     @FXML private Label usernameLabel;
@@ -25,16 +25,25 @@ public class ProfileController {
     @FXML private Label xpLabel;
     @FXML private FlowPane badgeContainer;
 
+    private int currentXP = 0;
+    private int maxXP = 100;
+    private List<Badge> badges = new ArrayList<>();
+
     public void initialize() {
         // Example user data (later you can load from a user file/settings)
         usernameLabel.setText("Hey Snoopy!");
 
-        // Example: 50% XP progress
-        xpBar.setProgress(0.5);
-        xpLabel.setText("XP: 50/100");
+        // Initialize XP
+        updateXP(50); 
 
         // Load badges from CSV
-        List<Badge> badges = new ArrayList<>();
+        loadBadges();
+
+        // Render badge cards
+        renderBadges();
+    }
+
+    private void loadBadges() {
         try (BufferedReader br = new BufferedReader(new FileReader(
                 "src/main/resources/edu/utsa/cs3443/brainwaves/data/badges.csv"))) {
             String line;
@@ -52,8 +61,10 @@ public class ProfileController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        // Load badge cards 
+    private void renderBadges() {
+        badgeContainer.getChildren().clear();
         for (Badge badge : badges) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(
@@ -61,12 +72,34 @@ public class ProfileController {
                 Node card = loader.load();
                 BadgeCardController controller = loader.getController();
                 controller.setBadge(badge);
+
+                // Store controller reference for updates
+                card.setUserData(controller);
+
                 badgeContainer.getChildren().add(card);
-            } 
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
+    //** Update XP bar and label *//
+    public void updateXP(int amount) {
+        currentXP = Math.min(maxXP, currentXP + amount);
+        xpBar.setProgress((double) currentXP / maxXP);
+        xpLabel.setText("XP: " + currentXP + "/" + maxXP);
+    }
+
+    //** Unlock a badge when earned *//
+    public void unlockBadge(int badgeId) {
+        for (Node node : badgeContainer.getChildren()) {
+            BadgeCardController controller = (BadgeCardController) node.getUserData();
+            if (controller.getBadge().getId() == badgeId) {
+                controller.getBadge().setEarned(true);
+                controller.refresh(); // update UI (locked → earned)
+            }
+        }
+    }
 }
+
 
