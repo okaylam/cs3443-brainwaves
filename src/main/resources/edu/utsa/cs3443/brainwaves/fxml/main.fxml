@@ -76,6 +76,18 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
+                        <ToggleButton fx:id="profileButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#goProfile" prefWidth="64.0" styleClass="nav-btn" text="Profile">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
                      </children>
                      <StackPane.margin>
                         <Insets left="10.0" right="10.0" />

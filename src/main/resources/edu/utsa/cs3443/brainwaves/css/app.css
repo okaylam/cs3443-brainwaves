@@ -36,7 +36,7 @@
     -fx-font-size: 13px;
 }
 
-.nav-btn:selected {
+.nav-btn:hover {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #ffcabf, #ffe4ea, #f2f4f7);
     -fx-text-fill: #0a0f29;
     -fx-background-radius: 12;
@@ -44,6 +44,11 @@
 }
 
 /* Home View Style */
+.greeting-text {
+    -fx-font-family: "Avigea";
+    -fx-font-size: 20px;
+}
+
 .profile-pic {
     -fx-background-color: #ffffffbf;
     -fx-background-radius: 12;

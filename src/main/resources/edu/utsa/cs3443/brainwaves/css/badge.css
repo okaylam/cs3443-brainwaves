@@ -22,6 +22,14 @@
     -fx-text-fill: #666666;
 }
 
+.badge-earned {
+    -fx-opacity: 1.0;
+}
+
+.badge-locked {
+    -fx-opacity: 0.4;
+}
+
 /* Optional rarity colors */
 .badge-bronze { -fx-background-color: #cd7f32; }
 .badge-silver { -fx-background-color: #c0c0c0; }

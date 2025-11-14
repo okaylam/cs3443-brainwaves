@@ -16,15 +16,12 @@ public class Badge {
     }
 
     public int getId() { return id; }
-    public String getName() { return name;
-    }
+    public String getName() { return name; }
     public String getDescription() { return description; }
-    public String getIconPath() { return iconPath;
-    }
-    public boolean isEarned() { return earned;
-    }
+    public String getIconPath() { return iconPath; }
 
-    public void earn() { 
-    this.earned = true; 
-    }
+    public boolean isEarned() { return earned; }
+    public void setEarned(boolean earned) { this.earned = earned; }
+
 }
+

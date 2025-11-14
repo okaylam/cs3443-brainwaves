@@ -1,5 +1,16 @@
+package edu.utsa.cs3443.brainwaves.controller;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.util.Duration;
+
 public class FocusController {
-    @FXML private Label timerLabel;
+    @FXML
+    private Label timerLabel;
     @FXML private ProgressBar focusProgress;
 
     private Timeline timeline;

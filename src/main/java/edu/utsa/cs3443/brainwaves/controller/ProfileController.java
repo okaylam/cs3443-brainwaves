@@ -14,10 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//**
- * Controller for profile-view.fxml
+/* Controller for profile-view.fxml
  * Displays user info, XP progress, and earned badges.
- *//
+ */
 public class ProfileController {
 
     @FXML private Label usernameLabel;
@@ -54,7 +53,10 @@ public class ProfileController {
                     int id = Integer.parseInt(parts[0]);
                     String name = parts[1];
                     String description = parts[2];
-                    String iconPath = parts[3];
+                    String iconFile = parts[3];
+
+                    String iconPath = "/edu/utsa/cs3443/brainwaves/icons/" + iconFile;
+
                     badges.add(new Badge(id, name, description, iconPath));
                 }
             }

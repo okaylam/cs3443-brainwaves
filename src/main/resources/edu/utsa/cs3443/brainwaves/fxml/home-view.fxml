@@ -24,16 +24,16 @@
                                  <children>
                                     <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="profile-pic" HBox.hgrow="NEVER">
                                        <children>
-                                          <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+                                          <ImageView fx:id="profilePic" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                                              <image>
-                                                <Image url="@../icons/snoopy%20profile%20pic.jpg" />
+                                                <Image url="@../icons/profile-pic.jpg" />
                                              </image>
                                           </ImageView>
                                        </children>
                                     </StackPane>
                                     <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="240.0">
                                        <children>
-                                          <Label text="Hey Snoopy!">
+                                          <Label styleClass="greeting-text" text="Hey Snoopy!">
                                              <font>
                                                 <Font name="Avigea" size="25.0" />
                                              </font>

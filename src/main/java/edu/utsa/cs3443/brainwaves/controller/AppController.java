@@ -10,10 +10,9 @@ import java.io.IOException;
 public class AppController {
     @FXML private StackPane contentHolder;
 
-    private enum View { HOME, TASKS, NOTES, FOCUS }
+    private enum View { HOME, TASKS, NOTES, FOCUS, PROFILE }
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
         show(View.HOME);
     }
 
@@ -21,6 +20,7 @@ public class AppController {
     @FXML private void goTasks() { show(View.TASKS); }
     @FXML private void goNotes() { show(View.NOTES); }
     @FXML private void goFocus() { show(View.FOCUS); }
+    @FXML private void goProfile() { show(View.PROFILE); }
 
     private void show(View v) {
         Parent view = loadView(v);
@@ -33,6 +33,7 @@ public class AppController {
             case View.TASKS -> "/edu/utsa/cs3443/brainwaves/fxml/task-view.fxml";
             case View.NOTES -> "/edu/utsa/cs3443/brainwaves/fxml/notes-view.fxml";
             case View.FOCUS -> "/edu/utsa/cs3443/brainwaves/fxml/focus-view.fxml";
+            case View.PROFILE -> "/edu/utsa/cs3443/brainwaves/fxml/profile-view.fxml";
         };
 
         try {
