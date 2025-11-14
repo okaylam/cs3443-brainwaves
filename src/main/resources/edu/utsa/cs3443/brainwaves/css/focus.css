@@ -1,0 +1,53 @@
+/* Timer label */
+#timerLabel {
+    -fx-font-size: 36px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* Progress bar */
+#focusProgress {
+    -fx-accent: #4A90E2;        /* fill color */
+    -fx-background-radius: 8;
+    -fx-padding: 4;
+}
+
+/* Control buttons: Start, Pause, Reset */
+.focus-btn {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 2, 2);
+}
+
+.focus-btn:hover {
+    -fx-background-color: #357ABD;
+}
+
+.focus-btn:pressed {
+    -fx-background-color: #2C5AA0;
+}
+
+/* Preset duration buttons: 5, 15, 25, 30 min */
+.preset-btn {
+    -fx-background-color: #99b0ed;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 999; /* pill shape */
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0, 2, 2);
+}
+
+.preset-btn:hover {
+    -fx-background-color: #7a96d1;
+}
+
+.preset-btn:pressed {
+    -fx-background-color: #5c78b8;
+}
