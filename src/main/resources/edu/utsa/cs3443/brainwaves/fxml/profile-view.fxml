@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.FlowPane?>
 
@@ -8,8 +9,20 @@
       fx:controller="edu.utsa.cs3443.brainwaves.controller.ProfileController"
       spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
     <children>
+        <!-- Title -->
         <Label text="Profile" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <!-- Username (binds to ProfileController.usernameLabel) -->
+        <Label fx:id="usernameLabel" text="Username" style="-fx-font-size: 16px;"/>
+
+        <!-- XP progress bar -->
+        <ProgressBar fx:id="xpBar" prefWidth="250"/>
+
+        <!-- XP label -->
         <Label fx:id="xpLabel" text="XP: 0" style="-fx-text-fill: #55CBCD;"/>
+
+        <!-- Badge container -->
         <FlowPane fx:id="badgeContainer" hgap="15" vgap="15" prefWrapLength="300"/>
     </children>
 </VBox>
+
