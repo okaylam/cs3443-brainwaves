@@ -52,7 +52,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <ToggleButton fx:id="notesButton" contentDisplay="TOP" mnemonicParsing="false" prefWidth="64.0" styleClass="nav-btn" text="Notes">
+                        <ToggleButton fx:id="notesButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#goNotes" prefWidth="64.0" styleClass="nav-btn" text="Notes">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -64,7 +64,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <ToggleButton fx:id="focusButton" contentDisplay="TOP" mnemonicParsing="false" prefWidth="64.0" styleClass="nav-btn" text="Focus">
+                        <ToggleButton fx:id="focusButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#goFocus" prefWidth="64.0" styleClass="nav-btn" text="Focus">
                            <font>
                               <Font size="10.0" />
                            </font>
