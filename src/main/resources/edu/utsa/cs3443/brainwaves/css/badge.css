@@ -1,0 +1,29 @@
+.badge-card {
+    -fx-background-color: #f9f9f9;
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+    -fx-spacing: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0, 2, 2);
+}
+
+.badge-icon {
+    -fx-background-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 4, 0, 2, 2);
+}
+
+.badge-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.badge-desc {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+/* Optional rarity colors */
+.badge-bronze { -fx-background-color: #cd7f32; }
+.badge-silver { -fx-background-color: #c0c0c0; }
+.badge-gold   { -fx-background-color: #ffd700; }
+.badge-platinum { -fx-background-color: #e5e4e2; }
