@@ -6,6 +6,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 
 public class TaskCardController {
+    private Task task;
+
     @FXML private Label titleLabel;
     @FXML private Label descLabel;
     @FXML private Label categoryChip;
@@ -14,8 +16,6 @@ public class TaskCardController {
     @FXML private Label dueLabel;
     @FXML private Label timeLabel;
     @FXML private CheckBox completeCheckbox;
-
-    private Task task;
 
     public void setTask(Task task) {
         this.task = task;

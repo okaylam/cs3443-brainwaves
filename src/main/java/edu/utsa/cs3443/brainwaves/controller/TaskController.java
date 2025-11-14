@@ -64,14 +64,6 @@ public class TaskController {
 
     }
 
-
-    // TODO: Input validation & normalization
-    // Currently we assume valid inputs only, but later we need to expand for input validation and null values
-    // Later add-ons:
-    // 1. Require taskTitle is not null
-    // 2. Default priority = "MEDIUM" if none selected
-    // 3. Default status = "TODO" if none selected
-    // 4. Allow dueDate, taskDesc, and category to be optional
     public static Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
                                   Task.Priority priority, Task.Status status, String category) {
         String id = createNextID();

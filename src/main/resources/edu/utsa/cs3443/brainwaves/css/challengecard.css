@@ -1,0 +1,5 @@
+.challenge-card {
+    -fx-background-color: #fff3cd;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0.2, 0, 2);
+}

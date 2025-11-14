@@ -2,7 +2,13 @@ package edu.utsa.cs3443.brainwaves.controller;
 
 import edu.utsa.cs3443.brainwaves.model.Challenge;
 import edu.utsa.cs3443.brainwaves.model.Task;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
+import javax.swing.text.html.ImageView;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,4 +50,6 @@ public class ChallengeController {
         Random rand = new Random();
         return challenges.get(rand.nextInt(challenges.size()));
     }
+
+
 }

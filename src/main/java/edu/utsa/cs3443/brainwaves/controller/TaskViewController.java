@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class TaskViewController {
+    private final TaskController taskData = new TaskController();
+
     @FXML private VBox taskContainer;
     @FXML private Button addTaskButton;
     @FXML private Button cancelTaskButton;
@@ -24,8 +26,6 @@ public class TaskViewController {
     @FXML private ChoiceBox<Task.Priority> priorityBox;
     @FXML private DatePicker dueDatePicker;
     @FXML private Spinner<Integer> timeSpinner;
-
-    private final TaskController taskData = new TaskController();
 
     @FXML
     public void initialize() throws IOException {
@@ -48,13 +48,13 @@ public class TaskViewController {
 
         // Loads the card FXML and the controller to build a task card and add it into taskContainer
         for (var task : taskData.getTasks()) {
-            addTaskCard(task);
+            createTaskCard(task);
         }
     }
 
     // Creates a task card
     @FXML
-    private void addTaskCard(Task task) {
+    private void createTaskCard(Task task) {
         try {
             var loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/brainwaves/fxml/task-card.fxml"));
             var card = loader.load();
@@ -87,7 +87,7 @@ public class TaskViewController {
         String taskTitle = titleField.getText().trim();
 
         // Required: Task Title
-        if (titleField.getText().trim().isEmpty()) {
+        if (taskTitle.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Missing required field. Please enter task title.");
             alert.showAndWait();
@@ -133,7 +133,7 @@ public class TaskViewController {
 
         // Creates a new task using the inputted information
         Task newTask = TaskController.createTask(taskTitle, taskDesc, taskDueDate, taskTimeEstimate, taskPriority, initialStatus, taskCategory);
-        addTaskCard(newTask);
+        createTaskCard(newTask);
 
         // Hides overlay and clears text fields after task is added
         addTaskOverlay.setVisible(false);
