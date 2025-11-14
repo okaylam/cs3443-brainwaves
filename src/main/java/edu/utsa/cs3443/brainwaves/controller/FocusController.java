@@ -25,11 +25,15 @@ public class FocusController {
     private void startTimer() {
         if (timeline != null) timeline.stop();
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            secondsRemaining--;
-            updateLabel();
+            if (secondsRemaining > 0) {
+                secondsRemaining--;
+                updateLabel();
+            }
             if (secondsRemaining <= 0) {
                 timeline.stop();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Session Complete");
+                alert.setHeaderText(null);
                 alert.setContentText("Focus session complete!");
                 alert.showAndWait();
             }
@@ -39,9 +43,38 @@ public class FocusController {
     }
 
     @FXML
+    private void pauseTimer() {
+        if (timeline != null) timeline.pause();
+    }
+
+    @FXML
     private void resetTimer() {
         secondsRemaining = focusDuration * 60;
         updateLabel();
+    }
+
+    @FXML
+    private void setDuration5() {
+        focusDuration = 5;
+        resetTimer();
+    }
+
+    @FXML
+    private void setDuration15() {
+        focusDuration = 15;
+        resetTimer();
+    }
+
+    @FXML
+    private void setDuration25() {
+        focusDuration = 25;
+        resetTimer();
+    }
+
+    @FXML
+    private void setDuration30() {
+        focusDuration = 30;
+        resetTimer();
     }
 
     private void updateLabel() {
@@ -51,3 +84,4 @@ public class FocusController {
         focusProgress.setProgress((double) secondsRemaining / (focusDuration * 60));
     }
 }
+
