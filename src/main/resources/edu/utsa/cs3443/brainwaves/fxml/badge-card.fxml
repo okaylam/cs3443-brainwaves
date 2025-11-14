@@ -6,10 +6,18 @@
 <VBox fx:controller="edu.utsa.cs3443.brainwaves.controller.BadgeCardController"
       xmlns="http://javafx.com/javafx/24.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      spacing="8" alignment="CENTER">
-    <children>
-        <ImageView fx:id="badgeIcon" fitHeight="64" fitWidth="64" preserveRatio="true"/>
-        <Label fx:id="badgeName" text="Badge Name"/>
-        <Label fx:id="badgeDescription" text="Badge Description" wrapText="true"/>
-    </children>
+      styleClass="badge-card"
+      spacing="8" alignment="CENTER"
+      stylesheets="@../css/badge.css">
+
+    <!-- Badge icon -->
+    <ImageView fx:id="badgeIcon" fitHeight="64" fitWidth="64" preserveRatio="true" styleClass="badge-icon"/>
+
+    <!-- Badge title -->
+    <Label fx:id="badgeName" text="Badge Name" styleClass="badge-title"/>
+
+    <!-- Badge description -->
+    <Label fx:id="badgeDescription" text="Badge Description" wrapText="true" styleClass="badge-desc"/>
+
 </VBox>
+
