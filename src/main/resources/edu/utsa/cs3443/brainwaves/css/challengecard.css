@@ -3,3 +3,10 @@
     -fx-background-radius: 16;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0.2, 0, 2);
 }
+
+.icon-frame {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-background-border: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0.25, 0, 2);
+}

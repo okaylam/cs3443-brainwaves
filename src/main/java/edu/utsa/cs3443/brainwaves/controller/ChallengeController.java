@@ -20,6 +20,7 @@ public class ChallengeController {
     private static final ArrayList<Challenge> challenges = new ArrayList<>();
     private static final String FILE_PATH = "src/main/resources/edu/utsa/cs3443/brainwaves/data/challenges.csv";
 
+    // Loads all the challenges from the csv file into an arraylist
     public void loadChallenges() throws IOException {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
@@ -37,8 +38,11 @@ public class ChallengeController {
                 String type = parts[3].trim();
                 String difficulty = parts[4].trim();
                 int xp = Integer.parseInt(parts[5].trim());
+                String iconFile = parts[6].trim();
 
-                challenges.add(new Challenge(id, name, text, type, difficulty, xp));
+                String iconPath = "/edu/utsa/cs3443/brainwaves/icons/" + iconFile;
+
+                challenges.add(new Challenge(id, name, text, type, difficulty, xp, iconPath));
             }
         } catch (Exception e) {
             // FIXME: Improve error handling and add user-friendly alerts
@@ -46,10 +50,9 @@ public class ChallengeController {
         }
     }
 
+    // Randomly chooses a challenge from the arraylist
     public static Challenge getRandomChallenge() {
         Random rand = new Random();
         return challenges.get(rand.nextInt(challenges.size()));
     }
-
-
 }

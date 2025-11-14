@@ -7,15 +7,17 @@ public class Challenge {
     private final String type;
     private final String difficulty;
     private final int xp;
+    private final String iconPath;
 
 
-    public Challenge(int id, String name, String text, String type, String difficulty, int xp) {
+    public Challenge(int id, String name, String text, String type, String difficulty, int xp, String iconPath) {
         this.id = id;
         this.name = name;
         this.text = text;
         this.type = type;
         this.difficulty = difficulty;
         this.xp = xp;
+        this.iconPath = iconPath;
     }
 
     public int getId() { return id; }
@@ -24,4 +26,5 @@ public class Challenge {
     public String getType() { return type; }
     public String getDifficulty() { return difficulty; }
     public int getXp() { return xp; }
+    public String getIconPath() { return iconPath; }
 }

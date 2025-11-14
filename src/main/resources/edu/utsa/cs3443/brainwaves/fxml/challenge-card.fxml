@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -12,7 +13,11 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="326.0" spacing="15.0">
          <children>
-            <ImageView fx:id="challengeIcon" fitHeight="59.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane fx:id="iconFrame" styleClass="icon-frame">
+               <children>
+                  <ImageView fx:id="challengeIcon" fitHeight="59.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
             <VBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="227.0">
                <children>
                   <HBox prefHeight="25.0" prefWidth="177.0">
