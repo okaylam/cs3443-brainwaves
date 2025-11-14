@@ -6,39 +6,58 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.FlowPane;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
 /**
-* Controller for prifile view.fxml
-* Displays user info, XP progress, and earned badges.
-*/
+ * Controller for profile-view.fxml
+ * Displays user info, XP progress, and earned badges.
+ */
 public class ProfileController {
 
     @FXML private Label usernameLabel;
     @FXML private ProgressBar xpBar;
-    @FXML private HBox badgeContainer;
+    @FXML private Label xpLabel;
+    @FXML private FlowPane badgeContainer;
 
     public void initialize() {
-      
-        // Example user data
-        usernameLabel.setText("Hey Snoopy!"); 
-        
+        // Example user data (later you can load from a user file/settings)
+        usernameLabel.setText("Hey Snoopy!");
+
         // Example: 50% XP progress
-        xpBar.setProgress(0.5); 
+        xpBar.setProgress(0.5);
+        xpLabel.setText("XP: 50/100");
 
-        // Example badges
-        List<Badge> badges = List.of(
-            new Badge(1, "Focus Master", "Complete 5 focus challenges", "/edu/utsa/cs3443/brainwaves/icons/focus.png"),
-            new Badge(2, "Task Slayer", "Finish 10 tasks", "/edu/utsa/cs3443/brainwaves/icons/task.png")
-        );
+        // Load badges from CSV
+        List<Badge> badges = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(
+                "src/main/resources/edu/utsa/cs3443/brainwaves/data/badges.csv"))) {
+            String line;
+            br.readLine(); // skip header
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4) {
+                    int id = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    String description = parts[2];
+                    String iconPath = parts[3];
+                    badges.add(new Badge(id, name, description, iconPath));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        // Load badge cards dynamically
+        // Load badge cards 
         for (Badge badge : badges) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/edu/utsa/cs3443/brainwaves/fxml/badge-card.fxml"));
+                        "/edu/utsa/cs3443/brainwaves/fxml/badge-card.fxml"));
                 Node card = loader.load();
                 BadgeCardController controller = loader.getController();
                 controller.setBadge(badge);
@@ -50,3 +69,4 @@ public class ProfileController {
         }
     }
 }
+
