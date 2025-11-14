@@ -1,13 +1,3 @@
-package edu.utsa.cs3443.brainwaves.controller;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.util.Duration;
-
 public class FocusController {
     @FXML private Label timerLabel;
     @FXML private ProgressBar focusProgress;
@@ -28,14 +18,9 @@ public class FocusController {
             if (secondsRemaining > 0) {
                 secondsRemaining--;
                 updateLabel();
-            }
-            if (secondsRemaining <= 0) {
+            } else {
                 timeline.stop();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Session Complete");
-                alert.setHeaderText(null);
-                alert.setContentText("Focus session complete!");
-                alert.showAndWait();
+                showCompletionAlert();
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -48,34 +33,20 @@ public class FocusController {
     }
 
     @FXML
+    private void resumeTimer() {
+        if (timeline != null) timeline.play();
+    }
+
+    @FXML
     private void resetTimer() {
         secondsRemaining = focusDuration * 60;
         updateLabel();
     }
 
-    @FXML
-    private void setDuration5() {
-        focusDuration = 5;
-        resetTimer();
-    }
-
-    @FXML
-    private void setDuration15() {
-        focusDuration = 15;
-        resetTimer();
-    }
-
-    @FXML
-    private void setDuration25() {
-        focusDuration = 25;
-        resetTimer();
-    }
-
-    @FXML
-    private void setDuration30() {
-        focusDuration = 30;
-        resetTimer();
-    }
+    @FXML private void setDuration5() { focusDuration = 5; resetTimer(); }
+    @FXML private void setDuration15() { focusDuration = 15; resetTimer(); }
+    @FXML private void setDuration25() { focusDuration = 25; resetTimer(); }
+    @FXML private void setDuration30() { focusDuration = 30; resetTimer(); }
 
     private void updateLabel() {
         int minutes = secondsRemaining / 60;
@@ -83,5 +54,12 @@ public class FocusController {
         timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
         focusProgress.setProgress((double) secondsRemaining / (focusDuration * 60));
     }
-}
 
+    private void showCompletionAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Session Complete");
+        alert.setHeaderText(null);
+        alert.setContentText("Focus session complete!");
+        alert.showAndWait();
+    }
+}
