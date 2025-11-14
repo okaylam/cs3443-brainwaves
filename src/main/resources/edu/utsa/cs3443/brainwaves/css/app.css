@@ -1,6 +1,6 @@
 /* Main app styles */
 .app {
-    -fx-background-color: linear-gradient(to bottom, #ffe8e4 0%, #f6efff 40%, #e8f2ff 100%);
+    -fx-background-color: linear-gradient(to bottom, #ffe8e4 0%, #fff0cc 40%, #e8f2ff 100%);
 }
 
 .header {

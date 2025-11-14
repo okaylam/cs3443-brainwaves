@@ -11,37 +11,49 @@
 
 <VBox fx:id="challengeCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" spacing="10.0" styleClass="challenge-card" stylesheets="@../css/challengecard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.brainwaves.controller.ChallengeCardController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="326.0" spacing="15.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="326.0" spacing="10.0">
          <children>
-            <StackPane fx:id="iconFrame" styleClass="icon-frame">
+            <StackPane fx:id="iconFrame" prefHeight="48.0" prefWidth="48.0" styleClass="icon-frame">
                <children>
-                  <ImageView fx:id="challengeIcon" fitHeight="59.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="challengeIcon" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
-            <VBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="227.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="227.0">
                <children>
                   <HBox prefHeight="25.0" prefWidth="177.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="160.0" text="Today's Challenge">
+                        <Label prefHeight="20.0" prefWidth="128.0" text="Today's Challenge">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="Nunito Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="XP" fx:id="xpLabel" />
+                        <Label styleClass="xp-chip" text="XP" fx:id="xpLabel">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <Label fx:id="titleLabel" text="Challenge Title" />
+                  <Label fx:id="titleLabel" prefHeight="0.0" prefWidth="86.0" text="Challenge Title">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></Label>
                </children>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
             </VBox>
          </children>
          <VBox.margin>
             <Insets />
          </VBox.margin>
       </HBox>
-      <Label fx:id="descLabel" alignment="TOP_LEFT" prefHeight="19.0" prefWidth="326.0" text="Challenge Description" wrapText="true" />
+      <Label fx:id="descLabel" alignment="TOP_LEFT" prefHeight="19.0" prefWidth="326.0" text="Challenge Description" wrapText="true" VBox.vgrow="ALWAYS" />
       <HBox alignment="BOTTOM_RIGHT" prefHeight="22.0" prefWidth="326.0">
          <children>
-            <Button fx:id="completeButton" mnemonicParsing="false" text="Complete Challenge" />
+            <Button fx:id="completeButton" mnemonicParsing="false" styleClass="complete-challenge-button" text="Complete Challenge">
+               <font>
+                  <Font name="Nunito Bold" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

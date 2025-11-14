@@ -1,5 +1,5 @@
 .challenge-card {
-    -fx-background-color: #fff3cd;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #ffcabf, #ffe4ea, #f2f4f7);
     -fx-background-radius: 16;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0.2, 0, 2);
 }
@@ -9,4 +9,18 @@
     -fx-background-radius: 12;
     -fx-background-border: 4;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0.25, 0, 2);
+}
+
+.xp-chip {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 999;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+}
+
+.complete-challenge-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0a0f29;
+    -fx-background-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.25, 0, 2);
 }
