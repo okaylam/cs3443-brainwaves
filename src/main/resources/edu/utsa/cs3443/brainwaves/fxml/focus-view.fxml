@@ -5,38 +5,51 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Tooltip?>
 
 <VBox xmlns="http://javafx.com/javafx/24.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="edu.utsa.cs3443.brainwaves.controller.FocusController"
-      spacing="15" alignment="CENTER" style="-fx-padding: 20;"
-      stylesheets="@../css/focus.css">
-    <children>
-        <!-- Timer label -->
-        <Label fx:id="timerLabel" text="25:00"/>
+      spacing="15" alignment="CENTER" styleClass="card"
+      stylesheets="@../css/app.css">
 
-        <!-- Progress bar -->
-        <ProgressBar fx:id="focusProgress" prefWidth="250"/>
+    <!-- Timer label -->
+    <Label fx:id="timerLabel" text="25:00" styleClass="timer-label"/>
 
-        <!-- Preset duration buttons -->
-        <HBox spacing="10" alignment="CENTER">
-            <children>
-                <Button text="5 min" onAction="#setDuration5" styleClass="preset-btn"/>
-                <Button text="15 min" onAction="#setDuration15" styleClass="preset-btn"/>
-                <Button text="25 min" onAction="#setDuration25" styleClass="preset-btn"/>
-                <Button text="30 min" onAction="#setDuration30" styleClass="preset-btn"/>
-            </children>
-        </HBox>
+    <!-- Progress bar -->
+    <ProgressBar fx:id="focusProgress" prefWidth="250"/>
 
-        <!-- Control buttons -->
-        <HBox spacing="10" alignment="CENTER">
-            <children>
-                <Button text="Start" onAction="#startTimer" styleClass="focus-btn"/>
-                <Button text="Pause" onAction="#pauseTimer" styleClass="focus-btn"/>
-                <Button text="Reset" onAction="#resetTimer" styleClass="focus-btn"/>
-            </children>
-        </HBox>
-    </children>
+    <!-- Preset duration buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="5 min" onAction="#setDuration5" styleClass="button">
+            <tooltip><Tooltip text="Set timer to 5 minutes"/></tooltip>
+        </Button>
+        <Button text="15 min" onAction="#setDuration15" styleClass="button">
+            <tooltip><Tooltip text="Set timer to 15 minutes"/></tooltip>
+        </Button>
+        <Button text="25 min" onAction="#setDuration25" styleClass="button">
+            <tooltip><Tooltip text="Set timer to 25 minutes"/></tooltip>
+        </Button>
+        <Button text="30 min" onAction="#setDuration30" styleClass="button">
+            <tooltip><Tooltip text="Set timer to 30 minutes"/></tooltip>
+        </Button>
+    </HBox>
+
+    <!-- Control buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Start" onAction="#startTimer" styleClass="button">
+            <tooltip><Tooltip text="Start focus session"/></tooltip>
+        </Button>
+        <Button text="Pause" onAction="#pauseTimer" styleClass="button">
+            <tooltip><Tooltip text="Pause timer"/></tooltip>
+        </Button>
+        <Button text="Resume" onAction="#resumeTimer" styleClass="button">
+            <tooltip><Tooltip text="Resume paused timer"/></tooltip>
+        </Button>
+        <Button text="Reset" onAction="#resetTimer" styleClass="button">
+            <tooltip><Tooltip text="Reset timer"/></tooltip>
+        </Button>
+    </HBox>
 </VBox>
 
 
