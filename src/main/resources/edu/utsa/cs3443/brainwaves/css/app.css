@@ -87,13 +87,20 @@
 
 .stat-label {
     -fx-font-size: 13px;
-    -fx-text-fill: #4A4A4A;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 700;
+    -fx-font
 }
 
 .stat-value {
     -fx-font-size: 22px;
     -fx-font-weight: 700;
     -fx-text-fill: #1F1F1F;
+}
+
+.stat-unit {
+    -fx-font-size: 11px;
+    -fx-opacity: 0.85;
 }
 
 .icon-frame {

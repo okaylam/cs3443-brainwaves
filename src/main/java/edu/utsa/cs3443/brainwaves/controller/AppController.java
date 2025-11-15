@@ -49,6 +49,10 @@ public class AppController {
                 home.setStats(stats);
             }
 
+            if (controller instanceof ProfileController profile) {
+                profile.setStats(stats);
+            }
+
             return root;
         } catch (IOException e) {
             throw new RuntimeException("Failed to load " + fxml, e);

@@ -1,22 +1,23 @@
 package edu.utsa.cs3443.brainwaves.controller;
 
 import edu.utsa.cs3443.brainwaves.model.Badge;
-import javafx.animation.PauseTransition;
+import edu.utsa.cs3443.brainwaves.model.UserStats;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.FlowPane;
-import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/* Controller for profile-view.fxml
+ * Displays user info, XP progress, and earned badges.
+ */
 public class ProfileController {
 
     @FXML private Label usernameLabel;
@@ -24,63 +25,18 @@ public class ProfileController {
     @FXML private Label xpLabel;
     @FXML private FlowPane badgeContainer;
 
-    private int currentXP = 0;
-    private final int maxXP = 100;
-    private final List<Badge> badges = new ArrayList<>();
-    private boolean nameUpdated = false;
-    private boolean quoteEntered = false;
+    private UserStats stats;
+    private List<Badge> badges = new ArrayList<>();
 
     public void initialize() {
+        // Example user data (later you can load from a user file/settings)
         usernameLabel.setText("Hey Snoopy!");
-        updateXP(50);
+
+        // Load badges from CSV
         loadBadges();
+
+        // Render badge cards
         renderBadges();
-
-        // 🔹 Interactivity triggers
-        usernameLabel.setOnMouseClicked(e -> promptForName());
-        xpLabel.setOnMouseClicked(e -> promptForQuote());
-
-        // 🔹 Tooltips for guidance
-        usernameLabel.setTooltip(new Tooltip("Click to personalize your name"));
-        xpLabel.setTooltip(new Tooltip("Click to enter your motivation quote"));
-    }
-
-    private void promptForName() {
-        flashLabel(usernameLabel); //  Visual feedback
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Update Name");
-        dialog.setHeaderText(null);
-        dialog.setContentText("Enter your name:");
-        dialog.showAndWait().ifPresent(name -> {
-            usernameLabel.setText("Hey " + name + "!");
-            if (!nameUpdated) {
-                updateXP(10);
-                nameUpdated = true;
-                checkProfileBadge();
-            }
-        });
-    }
-
-    private void promptForQuote() {
-        flashLabel(xpLabel); //  Visual feedback
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Your Motivation");
-        dialog.setHeaderText(null);
-        dialog.setContentText("What motivates you today?");
-        dialog.showAndWait().ifPresent(quote -> {
-            System.out.println("Saved quote: " + quote);
-            if (!quoteEntered) {
-                updateXP(10);
-                quoteEntered = true;
-                checkProfileBadge();
-            }
-        });
-    }
-
-    private void checkProfileBadge() {
-        if (nameUpdated && quoteEntered) {
-            unlockBadge(99); // hypothetical badge ID for "Profile Pioneer"
-        }
     }
 
     private void loadBadges() {
@@ -91,16 +47,18 @@ public class ProfileController {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 4) {
-                    int id = Integer.parseInt(parts[0].trim());
-                    String name = parts[1].trim();
-                    String description = parts[2].trim();
-                    String iconFile = parts[3].trim();
+                    int id = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    String description = parts[2];
+                    String iconFile = parts[3];
+
                     String iconPath = "/edu/utsa/cs3443/brainwaves/icons/" + iconFile;
+
                     badges.add(new Badge(id, name, description, iconPath));
                 }
             }
         } catch (IOException e) {
-            System.err.println("Error loading badges: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -113,52 +71,37 @@ public class ProfileController {
                 Node card = loader.load();
                 BadgeCardController controller = loader.getController();
                 controller.setBadge(badge);
+
+                // Store controller reference for updates
                 card.setUserData(controller);
+
                 badgeContainer.getChildren().add(card);
             } catch (IOException e) {
-                System.err.println("Error rendering badge: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }
 
-    public void updateXP(int amount) {
-        currentXP = Math.min(maxXP, currentXP + amount);
-        xpBar.setProgress((double) currentXP / maxXP);
-        xpLabel.setText("XP: " + currentXP + "/" + maxXP);
-
-        //  Pulse effect on XP bar
-        xpBar.setStyle("-fx-accent: #55CBCD;");
-        PauseTransition pulse = new PauseTransition(Duration.seconds(0.5));
-        pulse.setOnFinished(e -> xpBar.setStyle(""));
-        pulse.play();
+    public void setStats(UserStats stats) {
+        this.stats = stats;
+        refreshStats();
     }
 
+    private void refreshStats() {
+        xpBar.setProgress(stats.getProgress());
+        xpLabel.setText(stats.getXPLabel());
+    }
+
+    //** Unlock a badge when earned *//
     public void unlockBadge(int badgeId) {
         for (Node node : badgeContainer.getChildren()) {
             BadgeCardController controller = (BadgeCardController) node.getUserData();
             if (controller.getBadge().getId() == badgeId) {
                 controller.getBadge().setEarned(true);
-                controller.refresh();
-
-                //  Glow effect on unlocked badge
-                node.setStyle("-fx-effect: dropshadow(gaussian, #55CBCD, 10, 0.5, 0, 0);");
-                PauseTransition glow = new PauseTransition(Duration.seconds(1));
-                glow.setOnFinished(e -> node.setStyle(""));
-                glow.play();
+                controller.refresh(); // update UI (locked → earned)
             }
         }
     }
-
-    //  Flash effect for interactive labels
-    private void flashLabel(Label label) {
-        label.setStyle("-fx-background-color: #55CBCD; -fx-text-fill: white;");
-        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
-        pause.setOnFinished(e -> label.setStyle(""));
-        pause.play();
-    }
 }
-
-
-
 
 
