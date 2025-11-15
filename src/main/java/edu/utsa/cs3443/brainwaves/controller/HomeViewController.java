@@ -52,9 +52,16 @@ public class HomeViewController {
             ChallengeCardController controller = loader.getController();
 
             controller.setChallenge(challenge);
+            controller.setHomeController(this);
             challengeContainer.getChildren().add((Node) card);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void completeChallenge(Challenge challenge) {
+        stats.addXP(challenge.getXP());
+        challenge.setCompleted(true);
+        refreshStats();
     }
 }

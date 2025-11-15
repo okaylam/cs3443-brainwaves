@@ -45,8 +45,8 @@ public class AppController {
             Object controller = loader.getController();
 
             // Loads home view stats if on the home page
-            if (controller instanceof HomeViewController homeViewController) {
-                homeViewController.setStats(stats);
+            if (controller instanceof HomeViewController home) {
+                home.setStats(stats);
             }
 
             return root;

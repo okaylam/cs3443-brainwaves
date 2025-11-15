@@ -8,6 +8,7 @@ public class Challenge {
     private final String difficulty;
     private final int xp;
     private final String iconPath;
+    private boolean completed;
 
 
     public Challenge(int id, String name, String text, String type, String difficulty, int xp, String iconPath) {
@@ -20,11 +21,16 @@ public class Challenge {
         this.iconPath = iconPath;
     }
 
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     public int getId() { return id; }
     public String getName() { return name; }
     public String getText() { return text; }
     public String getType() { return type; }
     public String getDifficulty() { return difficulty; }
-    public int getXp() { return xp; }
+    public int getXP() { return xp; }
     public String getIconPath() { return iconPath; }
+    public boolean isCompleted() { return completed; }
 }

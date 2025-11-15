@@ -50,7 +50,7 @@
       <Label fx:id="descLabel" alignment="TOP_LEFT" prefHeight="19.0" prefWidth="326.0" text="Challenge Description" wrapText="true" VBox.vgrow="ALWAYS" />
       <HBox alignment="BOTTOM_RIGHT" prefHeight="22.0" prefWidth="326.0">
          <children>
-            <Button fx:id="completeButton" mnemonicParsing="false" styleClass="complete-challenge-button" text="Complete Challenge">
+            <Button fx:id="completeChallengeButton" mnemonicParsing="false" onAction="#onCompleteClicked" styleClass="complete-challenge-button" text="Complete Challenge">
                <font>
                   <Font name="Nunito Bold" size="12.0" />
                </font></Button>
