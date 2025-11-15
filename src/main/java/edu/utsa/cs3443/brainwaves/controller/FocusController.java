@@ -1,6 +1,7 @@
 package edu.utsa.cs3443.brainwaves.controller;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,8 +10,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.util.Duration;
 
 public class FocusController {
-    @FXML
-    private Label timerLabel;
+    @FXML private Label timerLabel;
     @FXML private ProgressBar focusProgress;
 
     private Timeline timeline;
@@ -31,25 +31,23 @@ public class FocusController {
                 updateLabel();
             } else {
                 timeline.stop();
-                showCompletionAlert();
+                showClockPing();       // Visual ping
+                showCompletionAlert(); //Alert
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
 
-    @FXML
-    private void pauseTimer() {
+    @FXML private void pauseTimer() {
         if (timeline != null) timeline.pause();
     }
 
-    @FXML
-    private void resumeTimer() {
+    @FXML private void resumeTimer() {
         if (timeline != null) timeline.play();
     }
 
-    @FXML
-    private void resetTimer() {
+    @FXML private void resetTimer() {
         secondsRemaining = focusDuration * 60;
         updateLabel();
     }
@@ -72,5 +70,13 @@ public class FocusController {
         alert.setHeaderText(null);
         alert.setContentText("Focus session complete!");
         alert.showAndWait();
+    }
+
+    //Visual clock ping method
+    private void showClockPing() {
+        timerLabel.setStyle("-fx-background-color: #55CBCD; -fx-text-fill: white; -fx-font-weight: bold;");
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> timerLabel.setStyle(""));
+        pause.play();
     }
 }
