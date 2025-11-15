@@ -26,6 +26,7 @@ public class ProfileController {
 
     private int currentXP = 0;
     private int maxXP = 100;
+    private int level = 3;  // preset starting level
     private List<Badge> badges = new ArrayList<>();
 
     public void initialize() {

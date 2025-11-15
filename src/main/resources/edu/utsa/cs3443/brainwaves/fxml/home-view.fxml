@@ -38,7 +38,17 @@
                                                 <Font name="Avigea" size="25.0" />
                                              </font>
                                           </Label>
-                                          <Label text="Ready to make today count?" />
+                                          <Label prefHeight="28.0" prefWidth="152.0" text="Ready to make today count?" />
+                                          <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="240.0" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="levelChip" prefHeight="18.0" prefWidth="48.0" styleClass="level-chip" text="Level #" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="5.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label prefHeight="18.0" prefWidth="63.0" styleClass="xp-label" text="XP Progress" HBox.hgrow="ALWAYS" fx:id="xpProgress" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                  </children>

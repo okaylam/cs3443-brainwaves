@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.brainwaves.controller;
 
+import edu.utsa.cs3443.brainwaves.model.UserStats;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,8 @@ public class AppController {
     @FXML private StackPane contentHolder;
 
     private enum View { HOME, TASKS, NOTES, FOCUS, PROFILE }
+
+    private final UserStats stats = new UserStats(3, 80);
 
     @FXML public void initialize() {
         show(View.HOME);
@@ -37,7 +40,16 @@ public class AppController {
         };
 
         try {
-            return FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+            Object controller = loader.getController();
+
+            // Loads home view stats if on the home page
+            if (controller instanceof HomeViewController homeViewController) {
+                homeViewController.setStats(stats);
+            }
+
+            return root;
         } catch (IOException e) {
             throw new RuntimeException("Failed to load " + fxml, e);
         }

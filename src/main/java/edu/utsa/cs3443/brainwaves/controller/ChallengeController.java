@@ -19,6 +19,7 @@ import java.util.Random;
 public class ChallengeController {
     private static final ArrayList<Challenge> challenges = new ArrayList<>();
     private static final String FILE_PATH = "src/main/resources/edu/utsa/cs3443/brainwaves/data/challenges.csv";
+    private static Challenge currentChallenge;
 
     // Loads all the challenges from the csv file into an arraylist
     public void loadChallenges() throws IOException {
@@ -51,8 +52,16 @@ public class ChallengeController {
     }
 
     // Randomly chooses a challenge from the arraylist
-    public static Challenge getRandomChallenge() {
+    private static Challenge getRandomChallenge() {
         Random rand = new Random();
         return challenges.get(rand.nextInt(challenges.size()));
+    }
+
+    // Sets the random challenge as the current challenge so it doesn't change when switching views
+    public static Challenge getCurrentChallenge() {
+        if (currentChallenge == null) {
+            currentChallenge = getRandomChallenge();
+        }
+        return currentChallenge;
     }
 }
