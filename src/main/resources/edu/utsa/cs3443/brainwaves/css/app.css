@@ -68,6 +68,41 @@
     -fx-font-size: 10px;
 }
 
+.stats-card {
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0.2, 0, 3);
+}
+
+.stats-streak-card {
+    -fx-background-color: linear-gradient(#ffe6d9, #ffc4a1);
+}
+
+.stats-focus-card {
+    -fx-background-color: linear-gradient(#e9e3ff, #c9bcff);
+}
+
+.stats-challenge-card {
+    -fx-background-color: linear-gradient(#daf8e6, #b6efd0);
+}
+
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4A4A4A;
+}
+
+.stat-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1F1F1F;
+}
+
+.icon-frame {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-background-border: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0.25, 0, 2);
+}
+
 /* Task View styles */
 .add-btn {
     -fx-background-color: #99b0ed;
