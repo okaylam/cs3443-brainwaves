@@ -28,8 +28,13 @@ public class TaskController {
                 String taskDesc = parts[2];
                 LocalDate dueDate = LocalDate.parse(parts[3]);
                 int timeEstimate = Integer.parseInt(parts[4]);
-                Task.Priority priority = Task.Priority.valueOf(parts[5]);
-                Task.Status status = Task.Status.valueOf(parts[6]);
+                Task.Priority priority = Task.Priority.valueOf(parts[5].toUpperCase());
+
+                // Normalizes statuses to proper format
+                String statusToken = parts[6];
+                statusToken = statusToken.toUpperCase().replace(' ', '_');
+                Task.Status status = Task.Status.valueOf(statusToken);
+
                 String category = parts[7];
 
                 tasks.add(new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category));
@@ -40,7 +45,7 @@ public class TaskController {
         }
     }
 
-    public void saveTasks() {
+    public static void saveTasks() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH));
 
@@ -64,11 +69,13 @@ public class TaskController {
 
     }
 
+    // Cre
     public static Task createTask(String taskTitle, String taskDesc, LocalDate dueDate, int timeEstimate,
                                   Task.Priority priority, Task.Status status, String category) {
         String id = createNextID();
         Task task = new Task(id, taskTitle, taskDesc, dueDate, timeEstimate, priority, status, category);
         tasks.add(task);
+        saveTasks();
         return task;
     }
 
