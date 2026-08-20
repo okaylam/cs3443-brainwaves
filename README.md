@@ -1,6 +1,8 @@
-#Brainwaves Productivity Application
+# Brainwaves Productivity Application
 
-This project was developed collaboratively as part of coursework at The University of Texas at San Antonio. It was designed to help students organize tasks, track coursework, capture notes, and maintain focus in a gamified environment.
+This project was developed collaboratively as part of coursework at the University of Texas at San Antonio. Brainwaves was designed to help students organize tasks, track coursework, capture notes, and maintain focus in a gamified environment.
+
+> **Course Project:** The original project repository was maintained by the course instructor and is not publicly accessible. This repository contains my portfolio copy of the project and does not reflect the original contribution history.
 
 ## ✨ Features
 - Task management dashboard
@@ -29,8 +31,8 @@ Designed end-to-end Figma prototypes translating functional productivity require
 ![Brainwaves UI Prototypes](assets/ui-prototypes.png)
 
 ### Key UI Features
-* **Dashboard:** Gamified learning progress with streak tracking, XP milestones, and daily challenges[cite: 1].
-* **Task Manager:** Categorized, priority-filtered task tracking sorted by subject tags (Calculus, Chemistry, etc.)[cite: 1].
-* **Brain Vault:** Integrated note-taking and flashcard system organized by academic disciplines[cite: 1].
-* **Focus Mode:** Dedicated Pomodoro-style timer tied directly to active study tasks[cite: 1].
+* **Dashboard:** Gamified learning progress with streak tracking, XP milestones, and daily challenges.
+* **Task Manager:** Categorized, priority-filtered task tracking sorted by subject tags (Calculus, Chemistry, etc.).
+* **Brain Vault:** Integrated note-taking and flashcard system organized by academic disciplines.
+* **Focus Mode:** Dedicated Pomodoro-style timer tied directly to active study tasks.
 
